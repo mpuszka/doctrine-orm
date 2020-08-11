@@ -1,0 +1,17 @@
+{
+    "name": "marcinpuszka/doctrine-orm",
+    "authors": [
+        {
+            "name": "Marcin Puszka",
+            "email": "marcin.puszka@iamdripfeed.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "class/"
+        }
+    },
+    "require": {
+        "bramus/router": "~1.4"
+    }
+}
