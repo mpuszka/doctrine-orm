@@ -4,6 +4,7 @@ declare(strict_types=1);
 include '../vendor/autoload.php';
 
 use App\Route;
+use App\ArticleController;
 
 $route  = new Route;
 $router = $route->getRouter();

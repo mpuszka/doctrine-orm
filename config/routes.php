@@ -2,5 +2,5 @@
 declare(strict_types=1);
 
 $router->get('/', function() {
-    echo 'Home Page Contents';
+    echo 'Home';
 });
