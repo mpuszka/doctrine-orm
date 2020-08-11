@@ -2,5 +2,10 @@
 declare(strict_types=1);
 
 $settings = [
-    'db' => []
+    'db' => [
+        'driver'   => 'pdo_mysql',
+        'user'     => 'root',
+        'password' => '2wepRawa',
+        'dbname'   => 'doctrineORM',
+    ]
 ];
