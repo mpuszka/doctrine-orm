@@ -1,6 +1,9 @@
 <?php
 declare(strict_types=1);
 
+use App\ArticleController;
+
 $router->get('/', function() {
-    echo 'Home';
+    $articles = new ArticleController;
+    $articles->index();
 });

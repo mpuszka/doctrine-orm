@@ -6,7 +6,8 @@ namespace App;
 class ArticleController 
 {
     public function index()
-    {
-        return 'index';
+    {   
+        
+        require '../template/articles.php';
     }
 }
