@@ -3,9 +3,23 @@ declare(strict_types=1);
 
 namespace App;
 
+/**
+ * Config class - singleton pattern
+ */
 class Config 
-{
+{   
+    /**
+     * Instance 
+     *
+     * @var object
+     */
     private static $instance;
+
+    /**
+     * Config
+     *
+     * @var array
+     */
     private $config = [
         'db' => [
             'driver'   => 'pdo_mysql',
@@ -14,11 +28,25 @@ class Config
             'dbname'   => 'doctrineORM'
         ]
     ];
- 
+    
+    /**
+     * Constructor
+     */
     private function __construct() {}
+
+    /**
+     * Clone
+     *
+     * @return void
+     */
     private function __clone() {}
- 
-    public static function getInstance() 
+    
+    /**
+     * Get instance
+     *
+     * @return object
+     */
+    public static function getInstance(): object
     {
         if (null === self::$instance) 
         {
@@ -28,7 +56,12 @@ class Config
         return self::$instance;
     }
 
-    public function getDb() 
+    /**
+     * Get database config
+     *
+     * @return array
+     */
+    public function getDb(): array 
     {
         return $this->config["db"];
     }
