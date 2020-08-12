@@ -3,21 +3,22 @@ declare(strict_types=1);
 
 namespace App;
 
+use App\Config;
+
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 
 class DoctrineORM
 {
-    private $paths;
-    private $isDevMode = false;
     private $dbParams;
     private $config;
     private $entityManager;
+    private $paths      = ['../class/Entity'];
+    private $isDevMode  = false;
 
-    public function __construct(array $config, array $paths) 
+    public function __construct() 
     {   
-        $this->paths            = $paths;
-        $this->dbParams         = $config;
+        $this->dbParams         = Config::getInstance()->getDb();
         $this->config           = Setup::createAnnotationMetadataConfiguration($this->paths, $this->isDevMode);
         $this->entityManager    = EntityManager::create($this->dbParams, $this->config);
     }

@@ -11,13 +11,8 @@ class ArticleController
     private $doctrine;
 
     public function __construct() 
-    {
-        $this->doctrine = new DoctrineORM([
-            'driver'   => 'pdo_mysql',
-            'user'     => 'root',
-            'password' => '2wepRawa',
-            'dbname'   => 'doctrineORM',
-        ], ['../class/Entity']);
+    {   
+        $this->doctrine = new DoctrineORM;
     }
 
     public function index(): void
