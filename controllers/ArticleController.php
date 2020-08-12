@@ -27,18 +27,31 @@ class ArticleController
 
     public function article(int $id): void
     {
+        $article = $this->getArticle($id);
+                            
+        require '../template/article.php';
+    }
+
+    public function edit(int $id): void 
+    {
+        $article = $this->getArticle($id);
+                      
+        require '../template/edit.php';
+    }
+
+    private function getArticle(int $id): ?object 
+    {
         $article = $this->doctrine
                             ->getEntityManager()
                             ->getRepository(Article::class)
-                            ->find($id);  
-        
+                            ->find($id); 
+
         if (!isset($article) || empty($article)) 
         {
             header("Location: /", true, 301);
             exit();
         }
-        
-                            
-        require '../template/article.php';
+
+        return $article;
     }
 }
