@@ -36,9 +36,88 @@ class Article
      */
     private $updated_date;
 
+    /**
+     * Get title
+     *
+     * @return string
+     */
     public function getTitle(): string 
     {
         return $this->title;
+    }
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     * @return void
+     */
+    public function setTitle(string $title): void 
+    {
+        $this->title = $title;
+    }
+
+    /**
+     * Get body
+     *
+     * @return string
+     */
+    public function getBody(): string 
+    {
+        return $this->body;
+    }
+
+    /**
+     * Set body
+     *
+     * @param string $body
+     * @return void
+     */
+    public function setBody(string $body): void 
+    {
+        $this->body = $body;
+    }
+
+    /**
+     * Set created date
+     *
+     * @param string $created_date
+     * @return void
+     */
+    public function setCreatedDate(string $created_date): void 
+    {
+        $this->created_date = $created_date;
+    }
+
+    /**
+     * Get created date
+     *
+     * @return string
+     */
+    public function getCreatedDate(): string 
+    {
+        return $this->created_date;
+    }
+
+    /**
+     * Set updated date
+     *
+     * @param string $updated_date
+     * @return void
+     */
+    public function setUpdatedDate(string $updated_date): void 
+    {
+        $this->updated_date = $updated_date;
+    }
+
+    /**
+     * Get updated date
+     *
+     * @return string
+     */
+    public function getUpdatedDate(): string 
+    {
+        return $this->updated_date;
     }
     
 }
