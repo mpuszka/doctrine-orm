@@ -104,7 +104,7 @@ class Article
      *
      * @return string
      */
-    public function getCreatedDate(): string 
+    public function getCreatedDate(): object 
     {
         return $this->created_date;
     }
@@ -125,7 +125,7 @@ class Article
      *
      * @return string
      */
-    public function getUpdatedDate(): string 
+    public function getUpdatedDate(): object 
     {
         return $this->updated_date;
     }
