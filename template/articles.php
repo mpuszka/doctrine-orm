@@ -17,7 +17,9 @@
                 <?php else: ?>
                     <ul>
                         <?php foreach ($articles as $article) : ?>
-                            <li><?= $article->getTitle(); ?>
+                            <li>
+                                <a href="/article/<?= $article->getId(); ?>"><?= $article->getTitle(); ?></a>
+                            </li>
                         <?php endforeach; ?>
                     </ul>
                 <?php endif; ?>

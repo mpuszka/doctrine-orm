@@ -37,6 +37,16 @@ class Article
     private $updated_date;
 
     /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId(): int 
+    {
+        return $this->id;
+    }
+
+    /**
      * Get title
      *
      * @return string
