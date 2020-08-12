@@ -35,5 +35,10 @@ class Article
      * @Column(name="`updated_date`", type="date") 
      */
     private $updated_date;
+
+    public function getTitle(): string 
+    {
+        return $this->title;
+    }
     
 }
