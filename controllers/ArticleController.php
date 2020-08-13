@@ -20,7 +20,7 @@ class ArticleController
         $articles = $this->doctrine
                             ->getEntityManager()
                             ->getRepository(Article::class)
-                            ->findBy([]);                          
+                            ->findBy([], ['created_date' => 'DESC']);                          
 
         require '../template/articles.php';
     }
@@ -71,5 +71,28 @@ class ArticleController
         }
 
         return $article;
+    }
+
+    public function getAdd(): void 
+    {
+        require '../template/edit.php';
+    }
+
+    public function postAdd(): void 
+    {   
+        $article = new Article;
+
+        $title  = $_POST['title'];
+        $body   = $_POST['body'];
+
+        $article->setTitle($title);
+        $article->setBody($body);
+        $article->setCreatedDate((new \DateTime));
+
+        $this->doctrine->getEntityManager()->persist($article);
+        $this->doctrine->getEntityManager()->flush();
+
+        header("Location: /", true, 301);
+        exit();
     }
 }

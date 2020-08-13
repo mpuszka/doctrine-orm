@@ -94,7 +94,7 @@ class Article
      * @param string $created_date
      * @return void
      */
-    public function setCreatedDate(string $created_date): void 
+    public function setCreatedDate(object $created_date): void 
     {
         $this->created_date = $created_date;
     }
