@@ -32,11 +32,29 @@ class ArticleController
         require '../template/article.php';
     }
 
-    public function edit(int $id): void 
+    public function getEdit(int $id): void 
     {
         $article = $this->getArticle($id);
                       
         require '../template/edit.php';
+    }
+
+    public function postEdit(int $id): void 
+    {
+        $article = $this->getArticle($id);
+        
+        $title  = $_POST['title'];
+        $body   = $_POST['body'];
+
+        $article->setTitle($title);
+        $article->setBody($body);
+        $article->setUpdatedDate((new \DateTime));
+
+        $this->doctrine->getEntityManager()->persist($article);
+        $this->doctrine->getEntityManager()->flush();
+
+        header("Location: /article/" . $id, true, 301);
+        exit();
     }
 
     private function getArticle(int $id): ?object 

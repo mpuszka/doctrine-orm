@@ -115,7 +115,7 @@ class Article
      * @param string $updated_date
      * @return void
      */
-    public function setUpdatedDate(string $updated_date): void 
+    public function setUpdatedDate(object $updated_date): void 
     {
         $this->updated_date = $updated_date;
     }

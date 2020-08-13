@@ -5,4 +5,5 @@ $router->setNamespace('\App');
 
 $router->get('/', 'ArticleController@index');
 $router->get('/article/(\d+)', 'ArticleController@article');
-$router->get('/article/edit/(\d+)', 'ArticleController@edit');
+$router->get('/article/edit/(\d+)', 'ArticleController@getEdit');
+$router->post('/article/edit/(\d+)', 'ArticleController@postEdit');
