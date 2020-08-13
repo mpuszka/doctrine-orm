@@ -36,7 +36,7 @@ class ArticleController
     {
         $article = $this->getArticle($id);
                       
-        require '../template/edit.php';
+        require '../template/add_edit.php';
     }
 
     public function postEdit(int $id): void 
@@ -75,7 +75,7 @@ class ArticleController
 
     public function getAdd(): void 
     {
-        require '../template/edit.php';
+        require '../template/add_edit.php';
     }
 
     public function postAdd(): void 
