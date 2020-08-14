@@ -40,7 +40,12 @@ class ArticleController
     }
 
     public function postEdit(int $id): void 
-    {
+    {   
+        if (false === $this->checkRequest($_POST)) {
+            header("Location: /article/" . $id, true, 301);
+            exit();
+        }
+
         $article = $this->getArticle($id);
         
         $title  = $_POST['title'];
@@ -80,6 +85,11 @@ class ArticleController
 
     public function postAdd(): void 
     {   
+        if (false === $this->checkRequest($_POST)) {
+            header("Location: /", true, 301);
+            exit();
+        }
+
         $article = new Article;
 
         $title  = $_POST['title'];
@@ -94,5 +104,21 @@ class ArticleController
 
         header("Location: /", true, 301);
         exit();
+    }
+
+    private function checkRequest(array $request): bool
+    {
+        $title  = trim($request['title']);
+        $body   = trim($request['body']);
+
+        if (empty($title)) {
+            return false;
+        }
+
+        if (empty($body)) {
+            return false;
+        }
+
+        return true;
     }
 }
