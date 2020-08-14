@@ -58,7 +58,7 @@ class ArticleController
         $this->doctrine->getEntityManager()->persist($article);
         $this->doctrine->getEntityManager()->flush();
 
-        Redirect::redirect('/', $id);
+        Redirect::redirect('/article/', $id);
     }
 
     private function getArticle(int $id): ?object 
