@@ -9,9 +9,8 @@ use App\DoctrineORM;
 $route  = new Route;
 $router = $route->getRouter();
 
-require 'config/settings.php';
 require 'config/routes.php';
 
 $route->runRouter();
 
-$doctrine = new DoctrineORM($settings['db'], ['class/Entity']);
+$doctrine = new DoctrineORM;

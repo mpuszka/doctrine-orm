@@ -39,14 +39,14 @@ class DoctrineORM
      *
      * @var array
      */
-    private $paths      = ['../class/Entity'];
+    private $paths = ['../class/Entity'];
 
     /**
      * Develop mode
      *
      * @var boolean
      */
-    private $isDevMode  = false;
+    private $isDevMode = false;
 
     /**
      * Constructor
