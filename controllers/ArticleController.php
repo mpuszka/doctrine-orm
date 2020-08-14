@@ -5,6 +5,7 @@ namespace App;
 
 use App\DoctrineORM;
 use App\Entity\Article;
+use App\Redirect;
 
 class ArticleController 
 {   
@@ -42,8 +43,7 @@ class ArticleController
     public function postEdit(int $id): void 
     {   
         if (false === $this->checkRequest($_POST)) {
-            header("Location: /article/" . $id, true, 301);
-            exit();
+            Redirect::redirect('/article/edit/', $id);
         }
 
         $article = $this->getArticle($id);
@@ -58,8 +58,7 @@ class ArticleController
         $this->doctrine->getEntityManager()->persist($article);
         $this->doctrine->getEntityManager()->flush();
 
-        header("Location: /article/" . $id, true, 301);
-        exit();
+        Redirect::redirect('/', $id);
     }
 
     private function getArticle(int $id): ?object 
@@ -71,8 +70,7 @@ class ArticleController
 
         if (!isset($article) || empty($article)) 
         {
-            header("Location: /", true, 301);
-            exit();
+            Redirect::redirect('/');
         }
 
         return $article;
@@ -86,8 +84,7 @@ class ArticleController
     public function postAdd(): void 
     {   
         if (false === $this->checkRequest($_POST)) {
-            header("Location: /", true, 301);
-            exit();
+            Redirect::redirect('/');
         }
 
         $article = new Article;
@@ -102,8 +99,7 @@ class ArticleController
         $this->doctrine->getEntityManager()->persist($article);
         $this->doctrine->getEntityManager()->flush();
 
-        header("Location: /", true, 301);
-        exit();
+        Redirect::redirect('/');
     }
 
     private function checkRequest(array $request): bool
