@@ -12,6 +12,26 @@
             </div>
         </div>
     </div>
+    <hr>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-6">
+                <?php
+                    $comments = $article->getComments();
+
+                    foreach($comments as $comment): 
+                ?>
+                    <div class="media mb-5">
+                        <div class="media-body">
+                            <h5 class="mt-0"><?= $comment->getTitle() ?? ''; ?></h5>
+                            <?= $comment->getBody() ?? ''; ?>
+                        </div>
+                    </div>
+
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </div>
 
 <?php 
     include 'partials/footer.php';

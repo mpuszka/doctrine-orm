@@ -3,13 +3,11 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-
 /**
  * @Entity
- * @Table(name="article")
+ * @Table(name="comment")
  */
-class Article 
+class Comment 
 {   
     /**
      * @Id
@@ -39,13 +37,10 @@ class Article
     private $updated_date;
 
     /**
-     * @OneToMany(targetEntity="Comment", mappedBy="article")
+     * @ManyToOne(targetEntity="Article", inversedBy="comments")
+     * @JoinColumn(name="article_id", referencedColumnName="id")
      */
-    private $comments;
-
-    public function __construct() {
-        $this->comments = new ArrayCollection();
-    }
+    private $article;
 
     /**
      * Get id
@@ -140,15 +135,4 @@ class Article
     {
         return $this->updated_date;
     }
-
-    /**
-     * Get article comments
-     *
-     * @return object
-     */
-    public function getComments(): object 
-    {
-        return $this->comments;
-    }
-    
 }
