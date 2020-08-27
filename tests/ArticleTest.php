@@ -19,7 +19,7 @@ final class ArticleTest extends TestCase
         $this->article->title           = "new title";
         $this->article->body            = "new body";
         $this->article->created_date    = "new body";
-        $this->article->created_date    = new \DateTime;
+        $this->article->created_date    = new DateTime;
     }
 
     public function testTitle(): void 
@@ -41,8 +41,8 @@ final class ArticleTest extends TestCase
     public function setBody(): void 
     {
         $body = 'New body';
-        $this->article->setTitle($title);
-        $this->assertSame($title, $this->article->getBody());
+        $this->article->setTitle($body);
+        $this->assertSame($body, $this->article->getBody());
     }
 
     public function testCreatedDate(): void 
@@ -59,7 +59,7 @@ final class ArticleTest extends TestCase
 
     public function testSetCreatedDate(): void 
     {
-        $dateTimeObj = new \DateTime;
+        $dateTimeObj = new DateTime;
         $this->article->setCreatedDate($dateTimeObj);
 
         $this->assertSame($dateTimeObj, $this->article->getCreatedDate());
@@ -79,7 +79,7 @@ final class ArticleTest extends TestCase
 
     public function testSetUpdatedDate(): void 
     {
-        $dateTimeObj = new \DateTime;
+        $dateTimeObj = new DateTime;
         $this->article->setUpdatedDate($dateTimeObj);
 
         $this->assertSame($dateTimeObj, $this->article->getUpdatedDate());
