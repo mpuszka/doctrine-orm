@@ -22,7 +22,7 @@ class Route
      */
     public function __construct() 
     {
-        $this->router = new Router;;
+        $this->router = new Router;
     }
 
     /**

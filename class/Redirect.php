@@ -7,14 +7,12 @@ namespace App;
  * Redirect class
  */
 class Redirect 
-{   
+{
     /**
      * Redirect method
-     *
      * @param string $url
-     * @param integer $parameter
-     * @param boolean $permanent
-     * @return void
+     * @param int|null $parameter
+     * @param bool $permanent
      */
     public static function redirect(string $url, int $parameter = null, bool $permanent = false): void
     {

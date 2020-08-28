@@ -97,7 +97,7 @@ class Comment
     /**
      * Set created date
      *
-     * @param string $created_date
+     * @param object $created_date
      * @return void
      */
     public function setCreatedDate(object $created_date): void 
@@ -108,7 +108,7 @@ class Comment
     /**
      * Get created date
      *
-     * @return string
+     * @return object
      */
     public function getCreatedDate(): object 
     {
@@ -118,7 +118,7 @@ class Comment
     /**
      * Set updated date
      *
-     * @param string $updated_date
+     * @param object $updated_date
      * @return void
      */
     public function setUpdatedDate(object $updated_date): void 
@@ -129,7 +129,7 @@ class Comment
     /**
      * Get updated date
      *
-     * @return string
+     * @return object
      */
     public function getUpdatedDate(): object 
     {

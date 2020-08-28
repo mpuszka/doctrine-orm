@@ -5,6 +5,11 @@ namespace App\Traits;
 
 Trait RequestTrait
 {
+    /**
+     * Check a simple request
+     * @param array $request
+     * @return bool
+     */
     private function checkRequest(array $request): bool
     {
         $title  = trim($request['title']);
