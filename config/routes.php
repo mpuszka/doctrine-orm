@@ -11,3 +11,7 @@ $router->post('/article/edit/(\d+)', 'ArticleController@postEdit');
 
 $router->get('/article/add', 'ArticleController@getAdd');
 $router->post('/article/add', 'ArticleController@postAdd');
+
+
+$router->get('/article/(\d+)/comment/add', 'CommentController@getAdd');
+$router->post('/article/(\d+)/comment/add', 'CommentController@postAdd');
