@@ -7,9 +7,13 @@ use App\DoctrineORM;
 use App\Entity\Article;
 use App\Entity\Comment;
 use App\Redirect;
+use App\Traits\ArticleTrait;
+use App\Traits\RequestTrait;
 
 class CommentController
 {
+    use ArticleTrait, RequestTrait;
+
     private $doctrine;
 
     public function __construct()
@@ -46,36 +50,5 @@ class CommentController
 
         Redirect::redirect('/article/' . $id);
 
-    }
-
-    private function checkRequest(array $request): bool
-    {
-        $title  = trim($request['title']);
-        $body   = trim($request['body']);
-
-        if (empty($title)) {
-            return false;
-        }
-
-        if (empty($body)) {
-            return false;
-        }
-
-        return true;
-    }
-
-    private function getArticle(int $id): ?object
-    {
-        $article = $this->doctrine
-            ->getEntityManager()
-            ->getRepository(Article::class)
-            ->find($id);
-
-        if (!isset($article) || empty($article))
-        {
-            Redirect::redirect('/');
-        }
-
-        return $article;
     }
 }

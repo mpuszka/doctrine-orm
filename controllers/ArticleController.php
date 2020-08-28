@@ -6,9 +6,13 @@ namespace App;
 use App\DoctrineORM;
 use App\Entity\Article;
 use App\Redirect;
+use App\Traits\ArticleTrait;
+use App\Traits\RequestTrait;
 
 class ArticleController 
-{   
+{
+    use ArticleTrait, RequestTrait;
+
     private $doctrine;
 
     public function __construct() 
@@ -59,21 +63,6 @@ class ArticleController
         $this->doctrine->getEntityManager()->flush();
 
         Redirect::redirect('/article/', $id);
-    }
-
-    private function getArticle(int $id): ?object 
-    {
-        $article = $this->doctrine
-                            ->getEntityManager()
-                            ->getRepository(Article::class)
-                            ->find($id); 
-
-        if (!isset($article) || empty($article)) 
-        {
-            Redirect::redirect('/');
-        }
-
-        return $article;
     }
 
     public function getAdd(): void 
