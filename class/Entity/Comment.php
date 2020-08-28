@@ -135,4 +135,14 @@ class Comment
     {
         return $this->updated_date;
     }
+
+    /**
+     * Set article
+     *
+     * @param Article $article
+     */
+    public function setArticle(Article $article): void
+    {
+        $this->article = $article;
+    }
 }

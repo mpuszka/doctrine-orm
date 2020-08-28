@@ -150,5 +150,16 @@ class Article
     {
         return $this->comments;
     }
+
+    /**
+     * Set comment
+     *
+     * @param Comment $comment
+     */
+    public function setComment(Comment $comment): void
+    {
+        $this->comments[] = $comment;
+        $comment->setArticle($this);
+    }
     
 }
