@@ -13,6 +13,9 @@ use Doctrine\ORM\EntityManager;
  */
 class DoctrineORM
 {
+    /**
+     * Constans path to entites
+     */
     private const ENTITIES_PATH = ['../class/Entity'];
 
     /**
