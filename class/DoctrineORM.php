@@ -12,7 +12,9 @@ use Doctrine\ORM\EntityManager;
  * DoctrineORM class
  */
 class DoctrineORM
-{   
+{
+    private const ENTITIES_PATH = ['../class/Entity'];
+
     /**
      * Database parameters
      *
@@ -39,7 +41,7 @@ class DoctrineORM
      *
      * @var array
      */
-    private $paths = ['../class/Entity'];
+    private $paths = self::ENTITIES_PATH;
 
     /**
      * Develop mode
